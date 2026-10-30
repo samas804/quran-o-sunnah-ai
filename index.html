@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d32">
+  <meta name="description" content="قرآن و سنت کی آسان اور قابلِ اعتماد تعلیم — اردو اور English میں۔">
+  <title>قرآن و سنت AI | قرآن، حدیث اور اسلامی رہنمائی</title>
+  <style>
+    :root{--green:#123d32;--green2:#1c5948;--gold:#d7b56d;--paper:#fbfaf6;--ink:#17251f;--muted:#68766f;--line:#e8e5dc}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.7}
+    a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+    .top{background:var(--green);color:white;padding:12px 5%;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{font-size:1.15rem;font-weight:800}.brand span{color:var(--gold)}.top small{color:#d9e6df}
+    header{position:sticky;top:0;z-index:5;background:#fffefaee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 5%;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    nav{display:flex;gap:20px;flex-wrap:wrap;font-size:.95rem;color:#34483e}nav a:hover{color:var(--green2)}
+    .btn{border:0;border-radius:10px;padding:10px 17px;background:var(--green);color:white;font-weight:700}.btn:hover{background:var(--green2)}.btn.alt{background:#eee9dc;color:var(--green)}
+    .hero{background:radial-gradient(ellipse at 85% 15%,#2d7257 0,transparent 38%),linear-gradient(120deg,#10392f,#174b3c);color:white;padding:72px 7% 66px;position:relative;overflow:hidden}
+    .hero:after{content:"۞";position:absolute;left:7%;top:8px;color:#ffffff12;font-size:250px}
+    .hero-inner{max-width:1100px;margin:auto;position:relative;z-index:1}.eyebrow{color:var(--gold);font-weight:700}.hero h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.3;max-width:760px;margin:10px 0}.hero p{max-width:650px;color:#e0ebe5;font-size:1.1rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.hero .btn{background:var(--gold);color:#18382e}.hero .btn.alt{background:#ffffff1b;color:white;border:1px solid #ffffff55}
+    main{max-width:1120px;margin:auto;padding:48px 22px}.section{margin-bottom:54px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:20px}.section h2{font-size:1.8rem;color:var(--green);margin:0}.muted{color:var(--muted);margin:4px 0 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 20px #18382e08}.card h3{margin:0 0 6px;color:var(--green)}.icon{font-size:1.6rem}
+    .prayerbar{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.prayer{background:white;border:1px solid var(--line);border-radius:12px;text-align:center;padding:14px 6px}.prayer b{display:block;color:var(--green)}
+    .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{padding:11px 13px;border:1px solid #d8ded8;border-radius:10px;background:white;min-width:180px}
+    .quran-layout{display:grid;grid-template-columns:280px 1fr;gap:16px}.surah-list{max-height:420px;overflow:auto}.surah-item{display:flex;justify-content:space-between;width:100%;text-align:right;background:white;border:0;border-bottom:1px solid var(--line);padding:10px;cursor:pointer}.surah-item:hover,.surah-item.active{background:#edf4ef;color:var(--green);font-weight:700}
+    .verse{padding:18px 0;border-bottom:1px solid var(--line)}.arabic{font-family:"Times New Roman",serif;font-size:1.8rem;line-height:2.1;text-align:right;color:#183f32}.translation{color:#46564e}.notice{background:#f4efe1;border:1px solid #e8ddc2;border-radius:12px;padding:14px;color:#645333}
+    .chatbox{background:white;border:1px solid var(--line);border-radius:16px;padding:22px}.chatbox textarea{width:100%;min-height:90px;resize:vertical;padding:12px;border:1px solid #d8ded8;border-radius:10px}
+    footer{background:#102f28;color:#dce8e1;padding:30px 6%;text-align:center}footer p{margin:4px}
+    @media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.prayerbar{grid-template-columns:repeat(3,1fr)}.quran-layout{grid-template-columns:1fr}nav{gap:10px;font-size:.85rem}header{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.hero{padding:52px 6%}.section-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="brand">قرآن و سنت <span>AI</span></div><small id="tagline">قرآن و سنت کی روشنی میں آسان رہنمائی</small></div>
+  <header>
+    <a class="brand" href="#">قرآن و سنت</a>
+    <nav><a href="#home">صفحہ اول</a><a href="#quran">قرآن</a><a href="#hadith">حدیث</a><a href="#prayer">نماز کے اوقات</a><a href="#assistant">AI معاون</a></nav>
+    <button class="btn alt" id="langBtn">English</button>
+  </header>
+  <section class="hero" id="home"><div class="hero-inner">
+    <div class="eyebrow" id="eyebrow">علم، عمل اور آسان رہنمائی</div>
+    <h1 id="heroTitle">قرآن و سنت سے اپنی زندگی روشن بنائیں</h1>
+    <p id="heroText">قرآنِ کریم کا مطالعہ کریں، مستند دینی معلومات حاصل کریں اور اسلامی تعلیمات کو آسان زبان میں سمجھیں۔</p>
+    <div class="actions"><a class="btn" href="#quran" id="readBtn">قرآن پڑھیں</a><a class="btn alt" href="#hadith" id="hadithBtn">احادیث دیکھیں</a></div>
+  </div></section>
+  <main>
+    <section class="section"><div class="grid">
+      <article class="card"><div class="icon">📖</div><h3 id="c1">قرآنِ کریم</h3><p id="c1p" class="muted">عربی متن اور اردو ترجمے کے ساتھ قرآن پڑھیں۔</p><a href="#quran">مطالعہ شروع کریں ←</a></article>
+      <article class="card"><div class="icon">📚</div><h3 id="c2">احادیث</h3><p id="c2p" class="muted">حدیث کے مستند مجموعوں تک رسائی حاصل کریں۔</p><a href="#hadith">مزید جانیں ←</a></article>
+      <article class="card"><div class="icon">🕌</div><h3 id="c3">نماز کے اوقات</h3><p id="c3p" class="muted">پاکستان کے شہروں کے نماز اوقات دیکھیں۔</p><a href="#prayer">اوقات دیکھیں ←</a></article>
+    </div></section>
+    <section class="section" id="prayer">
+      <div class="section-head"><div><h2 id="prayerTitle">نماز کے اوقات</h2><p class="muted" id="prayerSub">کراچی کے آج کے اوقات</p></div>
+        <div class="tools"><select class="field" id="city"><option value="Karachi">کراچی</option><option value="Lahore">لاہور</option><option value="Islamabad">اسلام آباد</option><option value="Peshawar">پشاور</option><option value="Quetta">کوئٹہ</option><option value="Multan">ملتان</option></select><button class="btn" id="loadPrayer">اوقات دکھائیں</button></div>
+      </div><div class="prayerbar" id="prayerTimes"><div class="prayer">فجر<b>--:--</b></div><div class="prayer">طلوع<b>--:--</b></div><div class="prayer">ظہر<b>--:--</b></div><div class="prayer">عصر<b>--:--</b></div><div class="prayer">مغرب<b>--:--</b></div><div class="prayer">عشاء<b>--:--</b></div></div>
+      <p class="muted" id="prayerNote">اوقات آن لائن سروس سے حاصل ہوتے ہیں؛ اپنے مقامی مسجد کے اعلان سے بھی تصدیق کر لیں۔</p>
+    </section>
+    <section class="section" id="quran">
+      <div class="section-head"><div><h2 id="quranTitle">قرآنِ کریم</h2><p class="muted" id="quranSub">سورت منتخب کریں اور عربی متن و اردو ترجمہ پڑھیں۔</p></div></div>
+      <div class="quran-layout"><div class="card surah-list" id="surahList">سورتوں کی فہرست لوڈ ہو رہی ہے…</div><div class="card" id="surahContent"><h3>قرآنِ کریم</h3><p class="muted">سورت منتخب کریں۔</p></div></div>
+    </section>
+    <section class="section" id="hadith">
+      <div class="section-head"><div><h2 id="hadithTitle">احادیثِ نبوی ﷺ</h2><p class="muted" id="hadithSub">مستند مجموعوں سے حدیث پڑھنے کے لیے رہنمائی</p></div></div>
+      <div class="grid">
+        <article class="card"><h3>صحیح البخاری</h3><p class="muted">امام محمد بن اسماعیل بخاریؒ کا معروف مجموعۂ حدیث۔</p><a href="https://sunnah.com/bukhari" target="_blank" rel="noopener">حدیث کا مجموعہ دیکھیں ↗</a></article>
+        <article class="card"><h3>صحیح مسلم</h3><p class="muted">امام مسلمؒ کا مستند مجموعۂ حدیث۔</p><a href="https://sunnah.com/muslim" target="_blank" rel="noopener">حدیث کا مجموعہ دیکھیں ↗</a></article>
+        <article class="card"><h3>سنن ابی داؤد</h3><p class="muted">فقہی ابواب پر مشتمل معروف مجموعۂ حدیث۔</p><a href="https://sunnah.com/abudawud" target="_blank" rel="noopener">حدیث کا مجموعہ دیکھیں ↗</a></article>
+      </div>
+    </section>
+    <section class="section" id="assistant">
+      <div class="section-head"><div><h2 id="assistantTitle">اسلامی AI معاون</h2><p class="muted" id="assistantSub">اسلامی سوالات کے لیے تحقیق اور حوالہ پر مبنی معاون</p></div></div>
+      <div class="chatbox"><p id="assistantInfo">یہ حصہ ابھی تیار کیا جا رہا ہے۔ درست جواب اور حوالہ دینے کے لیے محفوظ AI سرور، مستند دینی مواد اور جانچ کا نظام جوڑنا ضروری ہے۔</p><textarea id="question" placeholder="اپنا اسلامی سوال یہاں لکھیں…" disabled></textarea><div class="actions"><button class="btn" disabled id="askBtn">سوال بھیجیں</button></div><p class="muted" id="disclaimer">اہم دینی یا فقہی مسئلے میں مستند عالم سے بھی رجوع کریں۔ AI کے جواب کو حتمی فتویٰ نہ سمجھیں۔</p></div>
+    </section>
+    <div class="notice" id="sourceNote">دینی مواد میں حوالہ، کتاب اور حدیث نمبر شامل کرنا ضروری ہے۔ اس ابتدائی ورژن میں AI کے جوابات فعال نہیں کیے گئے تاکہ بغیر تصدیق کوئی دینی بات منسوب نہ ہو۔</div>
+  </main>
+  <footer><p><strong>قرآن و سنت AI</strong></p><p id="footerText">قرآن و سنت کی روشنی میں آسان اور ذمہ دارانہ تعلیم۔</p><p>© <span id="year"></span> Quran & Sunnah AI</p></footer>
+<script>
+const $=id=>document.getElementById(id);
+$("year").textContent=new Date().getFullYear();
+let english=false, allSurahs=[];
+const labels={ur:{tagline:"قرآن و سنت کی روشنی میں آسان رہنمائی",eyebrow:"علم، عمل اور آسان رہنمائی",heroTitle:"قرآن و سنت سے اپنی زندگی روشن بنائیں",heroText:"قرآنِ کریم کا مطالعہ کریں، مستند دینی معلومات حاصل کریں اور اسلامی تعلیمات کو آسان زبان میں سمجھیں۔",readBtn:"قرآن پڑھیں",hadithBtn:"احادیث دیکھیں",prayerTitle:"نماز کے اوقات",prayerSub:"آج کے نماز کے اوقات",quranTitle:"قرآنِ کریم",quranSub:"سورت منتخب کریں اور عربی متن و اردو ترجمہ پڑھیں۔",hadithTitle:"احادیثِ نبوی ﷺ",hadithSub:"مستند مجموعوں سے حدیث پڑھنے کے لیے رہنمائی",assistantTitle:"اسلامی AI معاون",assistantSub:"اسلامی سوالات کے لیے تحقیق اور حوالہ پر مبنی معاون",assistantInfo:"یہ حصہ ابھی تیار کیا جا رہا ہے۔ درست جواب اور حوالہ دینے کے لیے محفوظ AI سرور، مستند دینی مواد اور جانچ کا نظام جوڑنا ضروری ہے۔",disclaimer:"اہم دینی یا فقہی مسئلے میں مستند عالم سے بھی رجوع کریں۔ AI کے جواب کو حتمی فتویٰ نہ سمجھیں۔",footerText:"قرآن و سنت کی روشنی میں آسان اور ذمہ دارانہ تعلیم۔",c1:"قرآنِ کریم",c1p:"عربی متن اور اردو ترجمے کے ساتھ قرآن پڑھیں۔",c2:"احادیث",c2p:"حدیث کے مستند مجموعوں تک رسائی حاصل کریں۔",c3:"نماز کے اوقات",c3p:"پاکستان کے شہروں کے نماز اوقات دیکھیں۔",prayerNote:"اوقات آن لائن سروس سے حاصل ہوتے ہیں؛ اپنے مقامی مسجد کے اعلان سے بھی تصدیق کر لیں۔",sourceNote:"دینی مواد میں حوالہ، کتاب اور حدیث نمبر شامل کرنا ضروری ہے۔ اس ابتدائی ورژن میں AI کے جوابات فعال نہیں کیے گئے تاکہ بغیر تصدیق کوئی دینی بات منسوب نہ ہو۔"},en:{tagline:"Simple guidance from the Quran and Sunnah",eyebrow:"Knowledge, practice and clear guidance",heroTitle:"Bring light to your life through the Quran and Sunnah",heroText:"Read the Holy Quran, explore reliable Islamic resources and learn Islamic teachings in clear language.",readBtn:"Read Quran",hadithBtn:"Explore Hadith",prayerTitle:"Prayer times",prayerSub:"Today's prayer times",quranTitle:"The Holy Quran",quranSub:"Choose a surah to read Arabic text with English translation.",hadithTitle:"Prophetic Hadith",hadithSub:"Links to recognized collections of Hadith",assistantTitle:"Islamic AI assistant",assistantSub:"A research- and reference-based assistant for Islamic questions",assistantInfo:"This feature is under development. A secure AI server, trusted Islamic sources and a review process are needed before answers can be enabled.",disclaimer:"For important religious or legal matters, consult a qualified scholar. Do not treat AI output as a final fatwa.",footerText:"Clear and responsible learning from the Quran and Sunnah.",c1:"The Holy Quran",c1p:"Read the Arabic text with translation.",c2:"Hadith",c2p:"Explore recognized Hadith collections.",c3:"Prayer times",c3p:"Check prayer times for cities in Pakistan.",prayerNote:"Times are provided by an online service; please also confirm with your local mosque.",sourceNote:"Religious content should include its source, book and Hadith number. AI answers are disabled in this starter version to avoid attributing unverified religious claims."}};
+$("langBtn").addEventListener("click",()=>{english=!english;const t=labels[english?"en":"ur"];Object.keys(t).forEach(k=>{if($(k))$(k).textContent=t[k]});$("langBtn").textContent=english?"اردو":"English";document.documentElement.lang=english?"en":"ur";document.documentElement.dir=english?"ltr":"rtl";$("question").placeholder=english?"Write your Islamic question here…":"اپنا اسلامی سوال یہاں لکھیں…";$("city").options[0].text=english?"Karachi":"کراچی";});
+const prayerNames=["فجر","طلوع","ظہر","عصر","مغرب","عشاء"];
+async function loadPrayer(){const city=$("city").value;$("prayerTimes").innerHTML="<p>لوڈ ہو رہا ہے…</p>";try{const date=new Date();const d=[String(date.getDate()).padStart(2,"0"),String(date.getMonth()+1).padStart(2,"0"),date.getFullYear()].join("-");const res=await fetch("https://api.aladhan.com/v1/timingsByCity/"+d+"?city="+encodeURIComponent(city)+"&country=Pakistan&method=1");if(!res.ok)throw Error("Prayer API unavailable");const j=await res.json();const keys=["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"];const names=english?["Fajr","Sunrise","Dhuhr","Asr","Maghrib","Isha"]:prayerNames;$("prayerTimes").innerHTML=keys.map((k,i)=>'<div class="prayer">'+names[i]+'<b>'+j.data.timings[k]+'</b></div>').join("");$("prayerSub").textContent=(english?city+" prayer times":"شہر: "+city+" — آج کے اوقات");}catch(e){$("prayerTimes").innerHTML='<p class="notice">اوقات حاصل نہیں ہو سکے۔ کچھ دیر بعد دوبارہ کوشش کریں۔</p>';}}
+$("loadPrayer").addEventListener("click",loadPrayer);loadPrayer();
+async function loadSurahs(){try{const r=await fetch("https://api.alquran.cloud/v1/surah");if(!r.ok)throw Error();const j=await r.json();allSurahs=j.data;$("surahList").innerHTML=allSurahs.map(s=>'<button class="surah-item" data-id="'+s.number+'"><span>'+s.number+". "+(english?s.englishName:s.name)+'</span><span>'+s.numberOfAyahs+'</span></button>').join("");$("surahList").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>loadSurah(Number(b.dataset.id),b)));}catch(e){$("surahList").textContent="سورتوں کی فہرست حاصل نہیں ہو سکی۔ انٹرنیٹ کنکشن چیک کریں۔";}}
+async function loadSurah(id,button){$("surahContent").innerHTML="<p>سورت لوڈ ہو رہی ہے…</p>";$("surahList").querySelectorAll("button").forEach(b=>b.classList.remove("active"));if(button)button.classList.add("active");try{const editions=english?"quran-uthmani,en.sahih":"quran-uthmani,ur.jalandhry";const r=await fetch("https://api.alquran.cloud/v1/surah/"+id+"/editions/"+editions);if(!r.ok)throw Error();const j=await r.json();const ar=j.data[0],tr=j.data[1];$("surahContent").innerHTML="<h3>"+(english?ar.englishName:ar.name)+" — "+ar.englishName+"</h3><p class='muted'>"+(english?"Verses: ":"آیات: ")+ar.numberOfAyahs+"</p>"+ar.ayahs.map((a,i)=>'<div class="verse"><div class="arabic">'+a.text+' <small>۞ '+a.numberInSurah+'</small></div><p class="translation">'+tr.ayahs[i].text+'</p></div>').join("");}catch(e){$("surahContent").textContent="ترجمہ یا آیات لوڈ نہیں ہو سکیں۔ کچھ دیر بعد کوشش کریں۔";}}
+loadSurahs();
+</script>
+</body>
+</html>
