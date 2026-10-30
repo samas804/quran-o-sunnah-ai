@@ -70,7 +70,7 @@
     </section>
     <section class="section" id="assistant">
       <div class="section-head"><div><h2 id="assistantTitle">اسلامی AI معاون</h2><p class="muted" id="assistantSub">اسلامی سوالات کے لیے تحقیق اور حوالہ پر مبنی معاون</p></div></div>
-      <div class="chatbox"><p id="assistantInfo">یہ حصہ ابھی تیار کیا جا رہا ہے۔ درست جواب اور حوالہ دینے کے لیے محفوظ AI سرور، مستند دینی مواد اور جانچ کا نظام جوڑنا ضروری ہے۔</p><textarea id="question" placeholder="اپنا اسلامی سوال یہاں لکھیں…" disabled></textarea><div class="actions"><button class="btn" disabled id="askBtn">سوال بھیجیں</button></div><p class="muted" id="disclaimer">اہم دینی یا فقہی مسئلے میں مستند عالم سے بھی رجوع کریں۔ AI کے جواب کو حتمی فتویٰ نہ سمجھیں۔</p></div>
+      <div class="chatbox"><p id="assistantInfo">اپنا سوال لکھیں۔ معاون آسان جواب دے گا، لیکن غیر مصدقہ حدیث نمبر یا فتویٰ نہیں گھڑے گا۔</p><textarea id="question" maxlength="1200" placeholder="اپنا اسلامی سوال یہاں لکھیں…"></textarea><div class="actions"><button class="btn" id="askBtn">سوال بھیجیں</button></div><div id="answerBox" class="notice" hidden aria-live="polite" style="white-space:pre-wrap;margin-top:16px"></div><p class="muted" id="disclaimer">اہم دینی یا فقہی مسئلے میں مستند عالم سے بھی رجوع کریں۔ AI کے جواب کو حتمی فتویٰ نہ سمجھیں۔</p></div>
     </section>
     <div class="notice" id="sourceNote">دینی مواد میں حوالہ، کتاب اور حدیث نمبر شامل کرنا ضروری ہے۔ اس ابتدائی ورژن میں AI کے جوابات فعال نہیں کیے گئے تاکہ بغیر تصدیق کوئی دینی بات منسوب نہ ہو۔</div>
   </main>
@@ -87,6 +87,35 @@ $("loadPrayer").addEventListener("click",loadPrayer);loadPrayer();
 async function loadSurahs(){try{const r=await fetch("https://api.alquran.cloud/v1/surah");if(!r.ok)throw Error();const j=await r.json();allSurahs=j.data;$("surahList").innerHTML=allSurahs.map(s=>'<button class="surah-item" data-id="'+s.number+'"><span>'+s.number+". "+(english?s.englishName:s.name)+'</span><span>'+s.numberOfAyahs+'</span></button>').join("");$("surahList").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>loadSurah(Number(b.dataset.id),b)));}catch(e){$("surahList").textContent="سورتوں کی فہرست حاصل نہیں ہو سکی۔ انٹرنیٹ کنکشن چیک کریں۔";}}
 async function loadSurah(id,button){$("surahContent").innerHTML="<p>سورت لوڈ ہو رہی ہے…</p>";$("surahList").querySelectorAll("button").forEach(b=>b.classList.remove("active"));if(button)button.classList.add("active");try{const editions=english?"quran-uthmani,en.sahih":"quran-uthmani,ur.jalandhry";const r=await fetch("https://api.alquran.cloud/v1/surah/"+id+"/editions/"+editions);if(!r.ok)throw Error();const j=await r.json();const ar=j.data[0],tr=j.data[1];$("surahContent").innerHTML="<h3>"+(english?ar.englishName:ar.name)+" — "+ar.englishName+"</h3><p class='muted'>"+(english?"Verses: ":"آیات: ")+ar.numberOfAyahs+"</p>"+ar.ayahs.map((a,i)=>'<div class="verse"><div class="arabic">'+a.text+' <small>۞ '+a.numberInSurah+'</small></div><p class="translation">'+tr.ayahs[i].text+'</p></div>').join("");}catch(e){$("surahContent").textContent="ترجمہ یا آیات لوڈ نہیں ہو سکیں۔ کچھ دیر بعد کوشش کریں۔";}}
 loadSurahs();
+$("askBtn").addEventListener("click", async () => {
+  const question = $("question").value.trim();
+  const box = $("answerBox");
+  if (!question) {
+    box.hidden = false;
+    box.textContent = "براہِ کرم پہلے اپنا سوال لکھیں۔";
+    return;
+  }
+  const btn = $("askBtn");
+  btn.disabled = true;
+  btn.textContent = english ? "Please wait…" : "انتظار کریں…";
+  box.hidden = false;
+  box.textContent = english ? "Preparing your answer…" : "جواب تیار ہو رہا ہے…";
+  try {
+    const response = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question })
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "سروس دستیاب نہیں۔");
+    box.textContent = data.answer + "\\n\\n" + (data.notice || "");
+  } catch (error) {
+    box.textContent = error.message || (english ? "Could not get an answer." : "جواب حاصل نہیں ہو سکا۔");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = english ? "Ask question" : "سوال بھیجیں";
+  }
+});
 </script>
 </body>
 </html>
